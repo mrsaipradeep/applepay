@@ -1,12 +1,17 @@
 import "dotenv/config";
 import express from "express";
 import * as paypal from "./paypal-api.js";
-const { PORT = 8888 } = process.env;
+const { PORT = 8888,FILE} = process.env;
 
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
+app.get('.well-known/apple-developer-domain-association', (req, res) => {
+  res
+    .status(200)
+    .send(FILE)
+})
 // render checkout page with client id & unique client token
 app.get("/", async (req, res) => {
   const clientId = process.env.CLIENT_ID, merchantId = process.env.MERCHANT_ID;
