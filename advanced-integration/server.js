@@ -7,7 +7,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
-app.get('.well-known/apple-developer-domain-association', (req, res) => {
+app.get('/.well-known/apple-developer-domain-association', (req, res) => {
   res
     .status(200)
     .send(FILE)
