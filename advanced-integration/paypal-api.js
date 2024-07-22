@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 
 // set some important variables
 const { CLIENT_ID, APP_SECRET, MERCHANT_ID } = process.env;
-const base = "https://api.paypal.com";
+const base = "https://msmaster.qa.paypal.com";
 
 // call the create order method
 export async function createOrder() {
