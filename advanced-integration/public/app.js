@@ -50,6 +50,7 @@ async function setupApplepay() {
           validationUrl: event.validationURL,
         })
         .then((payload) => {
+          console.log(payload.merchantSession);
           session.completeMerchantValidation(payload.merchantSession);
         })
         .catch((err) => {
