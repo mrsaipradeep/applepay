@@ -8,6 +8,10 @@ async function setupApplepay() {
       merchantCapabilities,
       supportedNetworks,
     } = await  applepay.config();
+  console.log("************");
+  console.log(countryCode);
+  console.log(currencyCode);
+  console.log(supportedNetworks);
 
   if (!isEligible) {
     throw new Error("applepay is not eligible");
@@ -50,6 +54,7 @@ async function setupApplepay() {
           validationUrl: event.validationURL,
         })
         .then((payload) => {
+          console.log(payload.merchantSession);
           session.completeMerchantValidation(payload.merchantSession);
         })
         .catch((err) => {
@@ -66,6 +71,7 @@ async function setupApplepay() {
 
     session.onpaymentauthorized = async (event) => {
       try {
+        console.log(event);
         /* Create Order on the Server Side */
         const orderResponse = await fetch(`/api/orders`,{
           method:'POST',
