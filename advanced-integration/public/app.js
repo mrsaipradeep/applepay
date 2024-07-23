@@ -27,7 +27,7 @@ async function setupApplepay() {
 
     const paymentRequest = {
       countryCode,
-      currencyCode: 'SGD',
+      currencyCode: 'HKD',
       merchantCapabilities,
       supportedNetworks,
       requiredBillingContactFields: [
