@@ -23,7 +23,7 @@ async function setupApplepay() {
 
     const paymentRequest = {
       countryCode,
-      currencyCode: 'HKD',
+      currencyCode: 'JPY',
       merchantCapabilities,
       supportedNetworks,
       requiredBillingContactFields: [
