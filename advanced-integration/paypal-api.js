@@ -20,14 +20,33 @@ export async function createOrder() {
       purchase_units: [
         {
           amount: {
-            currency_code: "JPY",
+            currency_code: "SGD",
             value: purchaseAmount,
           },
           payee: {
             merchant_id: MERCHANT_ID,
           }
         },
-      ],
+      ],"payment_source": {
+        "card": {
+          "name": "Yoko Hirakawa",
+          "billing_address": {
+            "address_line_1": "150710-3054 Kisshoin-ishihara-nagata",
+            "admin_area_2": "Ichikawa-shi",
+            "admin_area_1": "Chiba",
+            "postal_code": "272-0138",
+            "country_code": "JP"
+          },
+          "attributes": {
+            "vault": {
+              "store_in_vault": "ON_SUCCESS"
+            },
+            "verification": {
+              "method": "SCA_ALWAYS"
+            }
+          }
+        }
+      }
     }),
   });
 
